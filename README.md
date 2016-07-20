@@ -1,2 +1,2 @@
 # loja-REST
-First REST project
+First REST project from Alura
