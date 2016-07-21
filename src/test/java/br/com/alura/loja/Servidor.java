@@ -10,9 +10,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 public class Servidor {
 
 	public static void main(String[] args) {
-		URI uri = URI.create("http://localhost:8080/");
-		ResourceConfig config = new ResourceConfig().packages("br.com.alura.loja");
-		HttpServer server = GrizzlyHttpServerFactory.createHttpServer(uri, config);
+		HttpServer server = startaServidor();
 		System.out.println("Servidor rodando");
         try {
 			System.in.read();
@@ -21,5 +19,12 @@ public class Servidor {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	static HttpServer startaServidor() {
+		URI uri = URI.create("http://localhost:8080/");
+		ResourceConfig config = new ResourceConfig().packages("br.com.alura.loja");
+		HttpServer server = GrizzlyHttpServerFactory.createHttpServer(uri, config);
+		return server;
 	}
 }
